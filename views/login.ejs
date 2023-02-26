@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="/" class="link-logo">
+            <div class="logo">
+                <img class="logo-image" src="/images/autoVerde.png">
+            </div>
+        </a>
+    </nav>
+
+    <form class="form" action="/user/login" method="POST">
+        <h2>Inicicar sesión</h2>
+        <p>¿todavía no tienes una cuenta?<a href="/user/register"> Entra aquí</a></p>
+
+        <div class="form-container">
+            <% if (locals.errors != undefined) { %>
+                <div class="text-danger">
+                    <%= errors %>
+                </div>
+            <% } %> 
+
+            <% if (locals.credenciales != undefined) { %>
+                <div class="text-danger">
+                    <%= credenciales %>
+                </div>
+            <% } %>   
+            <div class="form-group">
+                <input type="text" name="mail" id="mail" class="form-input" value="<%= locals.oldData ? oldData.mail : null %>" placeholder=" ">
+                <label for="mail" class="form-label">Email</label>     
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-input" placeholder=" ">
+                <label for="password" class="form-label">Contraseña</label>  
+            </div>
+
+            <input type="submit" class="submit" value="Enviar">
+        </div>
+    </form>
+    
+</body>
+</html>

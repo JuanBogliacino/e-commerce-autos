@@ -1,0 +1,29 @@
+body {
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    min-width: 300px;
+}
+
+.div-marcas ul {
+    text-align: center;
+}
+
+.div-marcas ul li {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    background-color: #1caa00;
+    padding: 20px;
+    box-shadow: 10px 10px 3px #000;
+    text-shadow: #000 3px 3px;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+.div-marcas ul li:hover {
+    background-color: #207718;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/marcasMobile.css">
+     <!-- Font Awesome -->
+     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+     <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+    <title>Marcas</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="div-marcas">
+        <ul>
+            <% for (let i = 0; i < marcas.length; i++) { %>
+                <li><a href="/marcas/<%= marcas[i].id %>"><%= marcas[i].name %></a></li>
+            <% } %>
+        </ul>
+    </div>
+
+    <script src="/javascripts/index.js"></script>
+</body>

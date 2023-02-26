@@ -1,0 +1,105 @@
+body {
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: auto;
+    background-color: #ffffff;
+    width: 70%;
+    min-width: 250px;
+    max-width: 400px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px #333;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 10px 10px 10px #000000;
+}
+
+.form h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: #000;
+}
+
+.form p {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form p a {
+    font-weight: bold;
+    color: #000;
+}
+
+.form-container {
+    display: grid;
+    gap: 2.5em
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    color: #000;
+}
+
+.form-input {
+    width: 100%;
+    margin-top: 5px;
+    background: none;
+    color: #000;
+    font-size: 1rem;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border: 1.5px solid #333;
+    border-bottom: 2px solid #444;
+    background-color: #ececec;
+}
+
+.form-input:focus {
+    border: 2px solid #2eaf14;
+}
+
+option {
+    color: #000;
+}
+
+.submit {
+    background-color: #2eaf14;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: .5em;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.submit:hover {
+    background-color: #207718;
+}
+
+.text-danger {
+    color: #f00;
+    margin-top: 5px;
+}
+
+.errores ul li {
+    margin-top: 5px;
+    color: #f00;
+}
+
+@media (min-width: 450px) {
+    .form p {
+        font-size: 16px;
+    }
+}

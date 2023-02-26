@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+background: rgba(54,224,65,1);
+background: -moz-linear-gradient(left, rgba(54,224,65,1) 0%, rgba(0,54,13,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(54,224,65,1)), color-stop(100%, rgba(0,54,13,1)));
+background: -webkit-linear-gradient(left, rgba(54,224,65,1) 0%, rgba(0,54,13,1) 100%);
+background: -o-linear-gradient(left, rgba(54,224,65,1) 0%, rgba(0,54,13,1) 100%);
+background: -ms-linear-gradient(left, rgba(54,224,65,1) 0%, rgba(0,54,13,1) 100%);
+background: linear-gradient(to right, rgba(54,224,65,1) 0%, rgba(0,54,13,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36e041', endColorstr='#00360d', GradientType=1 );
+}
+
+.nav {
+    height: 60px;
+    background-color: #000;
+    border-bottom: 2px solid #2eaf14;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logo-image {
+    width: 100%;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: auto;
+    background-color: #fff;
+    width: 70%;
+    min-width: 250px;
+    max-width: 400px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px #333;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form h2 {
+    font-size: 2rem;
+    margin-bottom: .5em;
+    margin-top: 10px;
+}
+
+.form p {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form p a {
+    font-weight: bold;
+    color: #000;
+}
+
+.form-container {
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em
+}
+
+.form-group {
+    position: relative;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    outline: none;
+}
+
+.form-input:focus {
+    border-bottom: 2px solid #2eaf14;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #2eaf14;
+}
+
+.form-label {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.submit {
+    background-color: #2eaf14;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: .5em;
+    padding: 10px;
+}
+
+.submit:hover {
+    background-color: #207718;
+}
+
+.text-danger {
+    color: #f00;
+    margin-top: 5px;
+    display: flex;
+    font-size: 15px;
+}
+
+@media (min-width: 450px) {
+    .form p {
+        font-size: 16px;
+    }
+}

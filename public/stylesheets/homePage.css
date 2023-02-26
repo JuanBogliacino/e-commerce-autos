@@ -1,0 +1,113 @@
+body {
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    min-width: 300px;
+}
+
+.main-image {
+    position: relative;
+    background: url("/images/autos/wp9355769.webp") no-repeat center;
+    background-size: cover;
+    height: 430px;
+    overflow: hidden;
+}
+
+.main-image-2 {
+    position: relative;
+    background: url("/images/autonegrobanner.jpg") no-repeat center;
+    background-size: cover;
+    height: 430px;
+    overflow: hidden;
+    
+}
+
+.autos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.container {
+    min-width: 270px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #000;
+}
+
+.container:hover {
+    box-shadow: 10px 10px 5px #2eaf14;
+}
+
+.div-img {
+    height: 300px;
+    max-height: 220px;
+    padding: 5px;
+    padding-bottom: 2px;
+    
+}
+
+.div-img img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.datos p {
+    color: #000;
+    font-weight: bold;
+}
+
+.model {
+    margin-top: 10px;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+.div-precio {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-precio .discount {
+    color: #2eaf14;
+    font-size: 20px;
+}
+
+
+@media (min-width: 450px) {
+    .container {
+        max-width: 300px;
+        margin: 50px 5px;
+    }
+
+    .div-img {
+        max-height: none;
+        height: 200px;
+    }
+
+    .div-precio p {
+        font-size: 18px;
+    }
+
+    .div-precio .discount {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 760px) {
+    .container {
+        max-width: 250px;
+        margin: 50px 10px;
+    }
+
+    .div-precio p {
+        font-size: 20px;
+    }
+}

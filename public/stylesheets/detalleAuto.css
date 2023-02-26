@@ -1,0 +1,112 @@
+body {
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.editar {
+    color: #000;
+}
+
+.container {
+    min-width: 270px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #000;
+}
+
+.div-img {
+    height: 300px;
+    max-height: 220px;
+    padding: 5px;
+    padding-bottom: 2px;
+    
+}
+
+.div-img img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.datos p {
+    color: #000;
+    font-weight: bold;
+}
+
+.div-precio {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-precio .discount {
+    color: #2eaf14;
+    font-size: 20px;
+}
+
+.description, .model, .marca {
+    margin-top: 5px;
+    background-color: #ddd;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.div-buttom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit {
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 90%;
+    margin-top: 12px;
+    background-color: #2eaf14;
+    border-radius: 10px;
+    
+}
+
+.submit:hover {
+    background-color: #207718;
+}
+
+.submit:focus {
+    background-color: #2eaf14;
+}
+
+@media (min-width: 450px) {
+    .container {
+        max-width: 400px;
+    }
+
+    .div-img {
+        max-height: none;
+    }
+
+    .div-precio p {
+        font-size: 18px;
+    }
+
+    .div-precio .discount {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 760px) {
+    .container {
+        max-width: 500px;
+    }
+
+    .div-precio p {
+        font-size: 20px;
+    }
+}

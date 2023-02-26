@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/creacionAutos.css">
+     <!-- Font Awesome -->
+     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+     <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+    <title>Editar Auto</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <form class="form" action="/autos/editar/<%= auto.id %>" method="POST">
+        <h2>Editar Auto</h2>
+        <div class="form-container">
+
+            <section class="errores">
+                <ul></ul>
+            </section>
+
+            <div class="form-group">
+                <label for="model" class="form-label">Modelo</label>
+                <input type="text" name="model" id="name" class="form-input model" value="<%= auto.model %>">
+                
+                <div class="errores">
+                    <ul>
+                        <li class="li-model"></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="price" class="form-label">Precio</label>
+                <input type="number" name="price" id="price" class="form-input price" value="<%= auto.price %>">
+                
+                <div class="errores">
+                    <ul>
+                        <li class="li-price"></li>
+                    </ul>
+                </div>
+
+            </div>           
+            <div class="form-group">
+                <label for="discount" class="form-label">Descuento (opcional)</label>
+                <input type="number" name="discount" id="discount" class="form-input" value="<%= auto.discount %>">
+            </div>
+            <div class="form-group">
+                <label for="description" class="form-label">Descripción (opcional)</label>
+                <input type="text" name="description" id="description" class="form-input" value="<%= auto.description %>">
+            </div>
+            <div class="form-group">
+                <label for="img" class="form-label">Foto del Auto</label>
+                <input type="file" name="img" id="img" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Marca</label>
+                <select name="marca" class="form-input">
+                    <% for (let i = 0; i < marcas.length; i++) { %>
+                        <% if (marcas[i].id == auto.marca_id) { %>
+                            <option value="<%= marcas[i].id%>" selected>
+                                <%= marcas[i].name %>
+                            </option>
+                        <% } else { %>
+                            <option value="<%= marcas[i].id%>">
+                                <%= marcas[i].name %>
+                            </option>
+                        <% } %>    
+                    <% } %>
+                </select>
+            </div>
+            <input type="submit" class="submit" value="Enviar">
+        </div>
+    </form>
+
+    <script src="/javascripts/validaciones-editarAuto.js"></script>
+</body>
+</html>

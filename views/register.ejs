@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+        <!-- Font Awesome -->
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+        <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="/" class="link-logo">
+            <div class="logo">
+                <img class="logo-image" src="/images/autoVerde.png">
+            </div>
+        </a>
+    </nav>
+
+    <form class="form" action="/user/register" method="POST">
+        <h2>Registrarse</h2>
+        <p>¿Ya tienes una cuenta?<a href="/user/login"> Entra aquí</a></p>
+
+        <div class="form-container">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-input name" value="<%= locals.oldData ? oldData.name : null %>" placeholder=" ">
+                <label for="name" class="form-label">Nombre </label>
+                <% if (locals.errors && errors.name) { %>
+                    <div class="text-danger">
+                        <%= errors.name.msg %>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <input type="text" name="mail" id="mail" class="form-input mail" value="<%= locals.oldData ? oldData.mail : null %>" placeholder=" ">
+                <label for="mail" class="form-label">Email</label>
+                <% if (locals.errors && errors.mail) { %>
+                    <div class="text-danger">
+                        <%= errors.mail.msg %>
+                    </div>
+                <% } %>
+                <% if (locals.mailEnUso != undefined) { %>
+                    <div class="text-danger">
+                        <%= mailEnUso %>
+                    </div>
+                <% } %>      
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-input password" placeholder=" ">
+                <label for="password" class="form-label">Contraseña</label>
+                <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %>
+            </div>
+            <input type="submit" class="submit" value="Enviar">
+        </div>
+    </form>
+
+    <!-- <script src="/javascripts/validaciones-register.js"></script> -->
+</body>
+</html>

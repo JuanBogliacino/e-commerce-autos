@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/detalleAuto.css">
+     <!-- Font Awesome -->
+     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+     <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+    <title><%= auto.model %></title>
+</head>
+<body>
+    <%- include('./partials/nav') %> 
+
+    <div class="container">
+        <div class="div-img">
+            <img src="/images/autos/<%= auto.img %>" alt="foto-auto">
+        </div>
+        <div class="datos">
+            <div class="div-precio">
+                <p>$<%= auto.price %></p>
+                <% if (auto.discount > 0) { %>
+                    <p class="discount"><%= auto.discount %>%</p>
+                <% } %>
+            </div>
+            <p class="model">Modelo: <%= auto.model %></p>
+            <p class="marca">Marca: <%= auto.marca.name %></p>
+            <p class="description">Descripción: <%= auto.description %></p>
+            <div class="div-buttom">
+                <input type="submit" class="submit" value="Agregar al carrito">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/autos/editar/<%= auto.id %>">
+        <button class="editar">Editar</button>
+    </a>
+
+
+    <form action="/autos/borrar/<%= auto.id %>" method="POST">
+        <button class="editar" type="submit">Borrar</button>
+    </form>
+
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>
