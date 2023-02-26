@@ -9,12 +9,14 @@
      <!-- Font Awesome -->
      <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
      <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
-    <title>HomePage</title>
+    <title>MostWanted</title>
 </head>
 <body>
     <%- include('./partials/nav') %>
 
-    <div class="main-image"></div>
+    <div class="main-image">
+        <p>Most Wanted</p>
+    </div>
 
     <div class="autos-container">
         <% for (let i = 0; i < autos.length; i++) { %>
@@ -39,7 +41,9 @@
         <% } %>
     </div>
 
-    <div class="main-image-2"></div>
+    <div class="main-image-2">
+        <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">&copy;2023, MostWanted. All rights reserved.</a></p>
+    </div>
 
     <script src="/javascripts/index.js"></script>
 </body>
