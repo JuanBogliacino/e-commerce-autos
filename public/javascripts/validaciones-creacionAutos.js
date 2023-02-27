@@ -13,5 +13,18 @@ window.addEventListener("load", function() {
                 liPrice.innerHTML = "Tienes que ponerle un precio"
             }
         }
+
+        // let inputImg = document.querySelector(".img");
+
+        // let liImg = document.querySelector(".li-img")
+
+        // if (inputImg.value.originalname == "") {
+        //     e.preventDefault();
+            
+        //     if(liImg.value == "") {
+        //         liImg.innerHTML = "Tienes que ponerle un precio"
+        //     }
+        // }
+        
     });
 })

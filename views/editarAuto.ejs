@@ -14,7 +14,7 @@
 <body>
     <%- include('./partials/nav') %>
 
-    <form class="form" action="/autos/editar/<%= auto.id %>" method="POST">
+    <form class="form" action="/autos/editar/<%= auto.id %>" method="POST" enctype="multipart/form-data">
         <h2>Editar Auto</h2>
         <div class="form-container">
 
@@ -25,6 +25,12 @@
             <div class="form-group">
                 <label for="model" class="form-label">Modelo</label>
                 <input type="text" name="model" id="name" class="form-input model" value="<%= auto.model %>">
+
+                <% if (locals.errors && errors.model) { %>
+                    <div class="text-danger">
+                        <%= errors.model.msg %>
+                    </div>
+                <% } %>
                 
                 <div class="errores">
                     <ul>
@@ -36,6 +42,12 @@
             <div class="form-group">
                 <label for="price" class="form-label">Precio</label>
                 <input type="number" name="price" id="price" class="form-input price" value="<%= auto.price %>">
+
+                <% if (locals.errors && errors.price) { %>
+                    <div class="text-danger">
+                        <%= errors.price.msg %>
+                    </div>
+                <% } %>
                 
                 <div class="errores">
                     <ul>
@@ -55,6 +67,13 @@
             <div class="form-group">
                 <label for="img" class="form-label">Foto del Auto</label>
                 <input type="file" name="img" id="img" class="form-input">
+
+                <% if (locals.errors && errors.img) { %>
+                    <div class="text-danger">
+                        <%= errors.img.msg %>
+                    </div>
+                <% } %>
+
             </div>
             <div class="form-group">
                 <label class="form-label">Marca</label>
@@ -76,6 +95,6 @@
         </div>
     </form>
 
-    <script src="/javascripts/validaciones-editarAuto.js"></script>
+    <!-- <script src="/javascripts/validaciones-editarAuto.js"></script> -->
 </body>
 </html>

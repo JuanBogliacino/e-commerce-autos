@@ -10,4 +10,6 @@ router.get("/marcas", homePageController.marcasMobile);
 
 router.get("/marcas/:id", homePageController.marcas);
 
+router.get("/perfil", homePageController.perfil);
+
 module.exports = router;

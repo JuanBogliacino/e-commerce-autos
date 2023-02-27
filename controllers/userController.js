@@ -1,6 +1,6 @@
 let db = require("../database/models");
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 let userController = {
     register: function(req, res) {
@@ -20,8 +20,6 @@ let userController = {
         } else {
             db.User.findAll()
             .then(function(usuarios){
-                let passEncriptada = bcrypt.hashSync(req.body.password);
-
                   let usuario = usuarios.find(usuario => usuario.mail == req.body.mail);
 
                   if(usuario != undefined) {
@@ -34,7 +32,7 @@ let userController = {
                     db.User.create({
                         name: req.body.name,
                         mail: req.body.mail,
-                        password: passEncriptada
+                        password: bcryptjs.hashSync(req.body.password, 10)
                     });
            
                    res.redirect("/user/login");
@@ -56,12 +54,12 @@ let userController = {
                     errors: "Ambos campos deben ser completados"
                 })
             } else {
-                if(usuario != undefined) {
-                    let usuarioPass = bcrypt.compareSync(req.body.password, usuario.password);
-                    if (usuarioPass == true || req.body.password == usuario.password) {
+                if(usuario) {
+                    let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
+                    if (usuarioPass || req.body.password == usuario.password) {
                         res.redirect("/");
                     } else {
-                        console.log(usuarioPass);
+                        console.log(usuario.password);
                         res.render("login", {
                             oldData: req.body,
                             credenciales: "Las credenciales son invalidas"
@@ -70,7 +68,7 @@ let userController = {
                 } else {
                     res.render("login", {
                         oldData: req.body,
-                        credenciales: "Las credenciales son invalidas"
+                        credenciales: "El correo que ingresó no está registrado"
                     });
                 }
             }

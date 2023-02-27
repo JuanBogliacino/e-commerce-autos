@@ -26,7 +26,7 @@ let autosController = {
             price: req.body.price,
             discount: req.body.discount,
             description: req.body.description,
-            img: req.body.img,
+            img: req.file.filename,
             marca_id: req.body.marca
         });
 
@@ -62,20 +62,37 @@ let autosController = {
         })
     },
     actualizar: function(req, res) {
-        db.Auto.update({
-            model: req.body.model,
-            price: req.body.price,
-            discount: req.body.discount,
-            description: req.body.description,
-            img: req.body.img,
-            marca_id: req.body.marca
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
+        const resulltValidation = validationResult(req);
+        
+        if (resulltValidation.errors.length > 0) {
+            let pedidoAuto = db.Auto.findByPk(req.params.id);
 
-        res.redirect("/autos/" + req.params.id);
+            let pedidoMarcas = db.Marca.findAll();
+
+            Promise.all([pedidoAuto, pedidoMarcas])
+            .then(function([auto, marcas]) {
+            res.render("editarAuto", {
+                errors: resulltValidation.mapped(),
+                auto:auto, 
+                marcas:marcas
+            });
+        })
+        } else {
+            db.Auto.update({
+                model: req.body.model,
+                price: req.body.price,
+                discount: req.body.discount,
+                description: req.body.description,
+                img: req.file.filename,
+                marca_id: req.body.marca
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            });
+    
+            res.redirect("/autos/" + req.params.id);
+        }        
     },
     borrar: function(req, res) {
         db.Auto.destroy({

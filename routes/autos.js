@@ -6,27 +6,41 @@ const { body } = require('express-validator');
 
 const validations = [
     body('model').notEmpty().withMessage('Tienes que escribir un modelo'),
-    body('price').notEmpty().withMessage('Tienes que ponerle un precio')
+    body('price').notEmpty().withMessage('Tienes que ponerle un precio'),
+	body('img').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = [".jpg", ".png"]
+		if (!file) {
+			throw new Error("Tienes que subir una imagen");
+		} else {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(", ")}`);
+			}
+		}		
+
+		return true;
+	})
 ];
 
-// const path = require('path');
-// const multer = require('multer');
+const path = require('path');
+const multer = require('multer');
 
-// const storage = multer.diskStorage({
-// 	destination: (req, file, cb) => {
-// 		cb(null, 'public/images/autos');
-// 	},
-// 	filename: (req, file, cb) => {
-// 		let fileName = file.originalname;
-// 		cb(null, fileName);
-// 	}
-// })
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, 'public/images/autos');
+	},
+	filename: (req, file, cb) => {
+		let fileName = file.originalname + "-" + Date.now() + path.extname(file.originalname);
+		cb(null, fileName);
+	}
+})
 
-// const uploadFile = multer({ storage });
+const uploadFile = multer({ storage });
 
 //Creación
 router.get("/crear", autosController.crear);
-router.post("/crear", validations , autosController.guardado);
+router.post("/crear", uploadFile.single("img"), validations, autosController.guardado);
 
 //Lectura
 router.get("/" , autosController.listado);
@@ -36,7 +50,7 @@ router.get("/:id" , autosController.detalle);
 
 //Actualizacion
 router.get("/editar/:id", autosController.editar);
-router.post("/editar/:id", autosController.actualizar);
+router.post("/editar/:id", uploadFile.single("img"), validations, autosController.actualizar);
 
 //Borrado
 router.post("/borrar/:id", autosController.borrar);
