@@ -1,32 +1,44 @@
-<html>
-    <head>
-        <title>Mi sitio</title>
-        <link rel="stylesheet" href="/stylesheets/style.css">
-    </head>
-    <body>
-        <header>
-            <p>Mi sitio</p>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/autos/crear">Crear Auto</a>
-                    </li>
-                    <li>
-                        <a href="/autos">Ver Autos</a>
-                    </li>
-                    <li>
-                        <a href="/">homePage</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-<h1>Listado de autos</h1>
-<ul>
-    <% for (let i = 0; i < autos.length; i++) { %>
-        <li>
-            <a href="/autos/<%= autos[i].id %>">
-                <%= autos[i].model %>
-            </a>
-        </li>
-    <% } %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="text/css" href="/images/autoVerde.png">
+    <link rel="stylesheet" href="/stylesheets/homePage.css">
+     <!-- Font Awesome -->
+     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
+     <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
+    <title>MostWanted</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <p class="recientes">TODOS LOS AUTOS</p>
+
+    <div class="autos-container">
+        <% for (let i = 0; i < autos.length; i++) { %>
+           
+                <div class="container">
+                  <a href="/autos/<%= autos[i].id %>">
+                    <div class="div-img">
+                        <img src="/images/autos/<%= autos[i].img %>" alt="foto-auto">
+                    </div>
+                  </a>
+                    <div class="datos">
+                        <div class="div-precio">
+                            <p>$<%= autos[i].price %></p>
+                            <% if (autos[i].discount > 0) { %>
+                                <p class="discount"><%= autos[i].discount %>%</p>
+                            <% } %>
+                        </div>
+                        <p class="model"><%= autos[i].model %></p>
+                    </div>
+                </div>
+            
+        <% } %>
+    </div>
+
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>

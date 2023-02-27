@@ -7,7 +7,8 @@ let homePageController = {
 
         Promise.all([pedidoAutos, pedidoMarcas])
         .then(function([autos, marcas]) {
-            res.render("homePage", {autos:autos, marcas:marcas});
+            let autosReverse = autos.reverse();
+            res.render("homePage", {autos:autosReverse, marcas:marcas});
         })
     },
     ofertas: function(req, res) {

@@ -34,9 +34,12 @@ let autosController = {
         }
     },
     listado: function(req, res) {
-        db.Auto.findAll()
-        .then(function(autos) {
-            res.render("listadoAutos", {autos:autos})
+        let pedidoAutos = db.Auto.findAll({ include: [{association: "marca"}] })
+        let pedidoMarcas = db.Marca.findAll()
+
+        Promise.all([pedidoAutos, pedidoMarcas])
+        .then(function([autos, marcas]) {
+            res.render("listadoAutos", {autos:autos, marcas:marcas});
         })
     },
     detalle: function(req, res) {
