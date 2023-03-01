@@ -49,9 +49,20 @@ let autosController = {
 
         let pedidoMarcas = db.Marca.findAll();
 
-        Promise.all([pedidoAuto, pedidoMarcas])
-        .then(function([auto, marcas]) {
-            res.render("detalleAuto", {auto:auto, marcas:marcas});
+        let pedidoAutos = db.Auto.findAll({ include: [{association: "marca"}] })
+
+        Promise.all([pedidoAuto, pedidoMarcas, pedidoAutos])
+        .then(function([auto, marcas, autos]) {
+            let autosMarca = autos.filter(autosMarca => autosMarca.marca_id == auto.marca_id)
+            
+            let resultado = []
+            for (let i = 0; i < autosMarca.length; i++) {
+                if (autosMarca[i].id != auto.id) {
+                    resultado.push(autosMarca[i])
+                }
+            }
+
+            res.render("detalleAuto", {auto:auto, marcas:marcas, autosMarca:resultado});
         })
     },
     editar: function(req, res) {

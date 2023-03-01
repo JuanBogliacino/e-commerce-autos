@@ -56,14 +56,10 @@ let userController = {
             } else {
                 if(usuario) {
                     let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
+                    console.log(usuario.password);
+                    console.log(usuarioPass);
                     if (usuarioPass || req.body.password == usuario.password) {
                         res.redirect("/");
-                    } else {
-                        console.log(usuario.password);
-                        res.render("login", {
-                            oldData: req.body,
-                            credenciales: "Las credenciales son invalidas"
-                        });
                     }
                 } else {
                     res.render("login", {
@@ -71,6 +67,16 @@ let userController = {
                         credenciales: "El correo que ingresó no está registrado"
                     });
                 }
+                    // let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
+                    // if (usuarioPass || req.body.password == usuario.password) {
+                    //     res.redirect("/");
+                    // } else {
+                    //     console.log(usuario.password);
+                    //     res.render("login", {
+                    //         oldData: req.body,
+                    //         credenciales: "Las credenciales son invalidas"
+                    //     });
+                    // }
             }
            })
            .catch(function(error) {

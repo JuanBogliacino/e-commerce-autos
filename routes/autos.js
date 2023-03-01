@@ -20,6 +20,12 @@ const validations = [
 		}		
 
 		return true;
+	}),
+	body("discount").custom((value, { req }) => {
+		if (req.body.discount < 0 || req.body.discount > 99) {
+			throw new Error("Ese descuento no es posible");
+		}
+		return true;
 	})
 ];
 

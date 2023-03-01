@@ -4,6 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    min-width: 300px;
 }
 
 .editar {
@@ -83,6 +84,36 @@ body {
     background-color: #2eaf14;
 }
 
+.h2-relacionados {
+    text-align: center;
+    text-shadow: 2px 2px #000;
+}
+
+.div-relacionados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.autos-relacionados {
+    min-width: 270px;
+    width: 70%;
+    max-width: 300px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #000;
+}
+
+.autos-relacionados:hover {
+    box-shadow: 10px 10px 5px #2eaf14;
+}
+
+.autos-relacionados .div-img {
+    height: 300px;
+    max-height: 220px;
+}
+
 @media (min-width: 450px) {
     .container {
         max-width: 400px;
@@ -99,6 +130,23 @@ body {
     .div-precio .discount {
         font-size: 25px;
     }
+
+    .h2-relacionados {
+        font-size: 30px;
+    }
+
+    .div-relacionados {
+        margin: 10px 20px;
+    }
+
+    .autos-relacionados {
+         max-width: 230px;
+         margin: 30px 12px;
+    }
+    
+    .autos-relacionados .div-img {
+        max-height: 200px;
+    }
 }
 
 @media (min-width: 760px) {
@@ -108,5 +156,15 @@ body {
 
     .div-precio p {
         font-size: 20px;
+    }
+
+    .autos-relacionados {
+        margin: 20px 12px;
+   }
+}
+
+@media (min-width: 1460px) {
+    .autos-relacionados {
+        max-width: 320px;
     }
 }

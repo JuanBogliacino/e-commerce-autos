@@ -35,8 +35,43 @@
     </div>
 
 
+    <% if (autosMarca.length > 0 ) { %>
+        <h2 class="h2-relacionados">Autos relacionados</h2>
+        <div class="div-relacionados">
+
+            <% let limite = 0 %>
+            
+                <% for (let i = 0; i < autosMarca.length; i++) { %>
+
+                    <% limite++ %>
+                    
+                    <div class=" autos-relacionados">
+                      <a href="/autos/<%= autosMarca[i].id %>">
+                        <div class="div-img">
+                            <img src="/images/autos/<%= autosMarca[i].img %>" alt="foto-auto">
+                        </div>
+                      </a>
+                        <div class="datos">
+                            <div class="div-precio">
+                                <p>$<%= autosMarca[i].price %></p>
+                                <% if (autosMarca[i].discount > 0) { %>
+                                    <p class="discount"><%= autosMarca[i].discount %>%</p>
+                                <% } %>
+                            </div>
+                            <p class="model"><%= autosMarca[i].model %></p>
+                        </div>
+                    </div>
+
+            <% if (limite > 3) { %>
+                <% break %>
+            <%} %>
+            
+            <% } %>
+        </div>
+    <% } %>
 
 
+    
 
 
 

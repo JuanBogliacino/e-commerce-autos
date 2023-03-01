@@ -44,6 +44,13 @@
                 <label for="discount" class="form-label">Descuento (opcional)</label>
                 <input type="number" name="discount" id="discount" class="form-input" value="<%= locals.oldData ? oldData.discount : null %>">
             </div>
+
+            <% if (locals.errors && errors.discount) { %>
+                <div class="text-danger">
+                    <%= errors.discount.msg %>
+                </div>
+            <% } %>
+
             <div class="form-group">
                 <label for="description" class="form-label">Descripción (opcional)</label>
                 <input type="text" name="description" id="description" class="form-input" value="<%= locals.oldData ? oldData.description : null %>">
