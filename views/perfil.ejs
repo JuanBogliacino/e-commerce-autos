@@ -16,10 +16,9 @@
 
     <div class="container">
         <div class="div-img">
-            <img src="/images/lionel-messi-con-trofeo-copa-mundial-fifa_2560x1440_11267.jpg" alt="foto-auto">
+            <img src="/images/lionel-messi-con-trofeo-copa-mundial-fifa_2560x1440_11267.jpg" alt="foto-perfil">
         </div>
         <div class="datos">
-            <p class="name"><%= user.name %></p>
             <p class="mail"><%= user.mail %></p>
         </div>    
     </div>
@@ -51,7 +50,7 @@
                             <button class="editar">Editar</button>
                         </a>
                         <form class="form-borrar" action="/autos/borrar/<%= autos[i].id %>" method="POST">
-                            <button class="borrar" type="submit">Borrar</button>
+                            <button class="borrar" type="submit" onclick="return confirmDelete()">Borrar</button>
                         </form>
                        </div>
                     </div>
@@ -59,6 +58,22 @@
             <% } %>
         </div>
     <% } %>
+
+
+
+
+    
+    <script type="text/javascript">
+        function confirmDelete() {
+            let respuesta = confirm("Estas seguro que deseas eliminar este Auto");
+
+            if (respuesta == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 
     <script src="/javascripts/index.js"></script>
 </body>
