@@ -122,6 +122,16 @@ form {
     font-size: 15px;
 }
 
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox {
+    margin-right: 5px;
+}
+
 @media (min-width: 450px) {
     .form p {
         font-size: 16px;

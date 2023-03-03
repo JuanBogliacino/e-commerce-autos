@@ -14,34 +14,36 @@ rel="stylesheet">
             </a>
             <div class="barra-navegacion"><input type="text" name="buscador" id="buscador"><button><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button></div>
             <div class="nav-iconos">
-                <a href="/perfil" class=""><li><i class="fa-solid fa-circle-user"></i></li></a>
+                <% if (locals.isLogged == true) { %>
+                    <a href="/user/perfil" class="icono-perfil"><p><%= locals.userLogged.name%></p><li><i class="fa-solid fa-circle-user"></i></li></a> 
+                <% } %>
             </div>
 
             <button class="icono-menu-mobile"><i class="fa-solid fa-bars"></i>
               <ul class="menu-mobile oculto" id="mobile-menu">
+                <a href="/"><li class="">Home</li></a>
+                <% if (locals.isLogged == false) { %>
+                    <a href="/user/register"><li class="">Registrarse</li></a> 
+                <% } %>
                 <a href="/Autos"><li class="">Autos</li></a>
                 <a href="/ofertas"><li class="navigaton">Ofertas</li></a>
                 <a href="/marcas"><li class="navigaton">Marcas</li></a>
-                <a href="/autos/crear"><li class="">Vender</li></a>
-                <a href="/"><li class="navigaton"><i class="fa-solid fa-cart-shopping"></i></li></a>
-                <a href="/perfil" class="foto-usuario"><li class="navigaton"><i class="fa-solid fa-circle-user"></i></li></a>
+                <% if (locals.isLogged == true) { %>
+                    <a href="/autos/crear"><li class="">Vender</li></a>
+                    <a href="/"><li class="navigaton"><i class="fa-solid fa-cart-shopping"></i></li></a>
+                    <a href="/user/perfil" class="foto-usuario"><li class="navigaton"><i class="fa-solid fa-circle-user"></i></li></a>
+                    <a href="/user/logout"><li class="">Logout</li></a> 
+                <% } %>
               </ul>
             </button>
             
         </ul>
     </nav>
 
-    <!-- <div class="menu-marcas-mobile">
-        <ul>
-            <% for (let i = 0; i < marcas.length; i++) { %>
-                <li><a href="/marcas/<%= marcas[i].id %>"><%= marcas[i].name %></a></li>
-            <% } %>
-        </ul>
-    </div> -->
-
     <nav class="sub-nav">
         <ul>
             <div class="div-categorias">
+                <a href="/"><li class="">Home</li></a>
                 <a href="/ofertas"><li class="">Ofertas</li></a>
                 <a><li class="li-marcas">Marcas</li></a>
                 <a href="/Autos"><li class="">Autos</li></a>
@@ -49,9 +51,14 @@ rel="stylesheet">
             </div>
 
             <ul class="ul-register">
-                <a href="/user/register"><li class="">Registrarse</li></a>
-                <a href="/autos/crear"><li class="">Vender</li></a>
-                <a href="" class=""><li><i class="fa-solid fa-cart-shopping"></i></li></a>
+                <% if (locals.isLogged == false) { %>
+                    <a href="/user/register"><li class="">Registrarse</li></a> 
+                <% } %>
+                <% if (locals.isLogged == true) { %>
+                    <a href="/user/logout"><li class="logout">Logout</li></a>
+                    <a href="/autos/crear"><li class="">Vender</li></a>
+                    <a href="" class=""><li><i class="fa-solid fa-cart-shopping"></i></li></a> 
+                <% } %>
                 <!-- <a href="/form-login"><li class="">Login</li></a> -->
             </ul>
         </ul>

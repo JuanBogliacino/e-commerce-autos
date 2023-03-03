@@ -27,7 +27,8 @@ let autosController = {
             discount: req.body.discount,
             description: req.body.description,
             img: req.file.filename,
-            marca_id: req.body.marca
+            marca_id: req.body.marca,
+            user_id: req.session.userLogged.id
         });
 
         res.redirect("/");
@@ -98,7 +99,8 @@ let autosController = {
                 discount: req.body.discount,
                 description: req.body.description,
                 img: req.file.filename,
-                marca_id: req.body.marca
+                marca_id: req.body.marca,
+                user_id: req.session.userLogged.id
             }, {
                 where: {
                     id: req.params.id

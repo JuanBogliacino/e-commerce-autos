@@ -42,13 +42,6 @@ let homePageController = {
                 res.render("marcas", { autosMarca:autosMarca, marcas:marcas });
             }
         })
-    },
-    perfil: function(req, res) {
-        let pedidoMarcas = db.Marca.findAll();
-
-        pedidoMarcas.then(function(marcas) {
-            res.render("perfil", { marcas:marcas });
-        })
     }
 }
 

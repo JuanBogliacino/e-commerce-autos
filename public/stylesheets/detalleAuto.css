@@ -84,15 +84,32 @@ body {
     background-color: #2eaf14;
 }
 
+.div-link {
+    display: flex;
+    justify-content: center;
+    background-color: #1b1b1b;
+    padding: 10px;
+    align-items: center;
+}
+
+.a-h2-relacionados {
+    display: inline-block;
+}
+
 .h2-relacionados {
     text-align: center;
     text-shadow: 2px 2px #000;
+}
+
+.h2-relacionados:hover {
+    color: #2eaf14;
 }
 
 .div-relacionados {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #bbb;
 }
 
 .autos-relacionados {
@@ -137,10 +154,6 @@ body {
 
     .h2-relacionados {
         font-size: 30px;
-    }
-
-    .div-relacionados {
-        margin: 10px 20px;
     }
 
     .autos-relacionados {

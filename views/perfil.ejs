@@ -14,6 +14,59 @@
 <body>
     <%- include('./partials/nav') %>
 
+    <div class="container">
+        <div class="div-img">
+            <img src="/images/lionel-messi-con-trofeo-copa-mundial-fifa_2560x1440_11267.jpg" alt="foto-auto">
+        </div>
+        <div class="datos">
+            <p class="name"><%= user.name %></p>
+            <p class="mail"><%= user.mail %></p>
+        </div>    
+    </div>
+
+    <% if (autos.length > 0 ) { %>
+        <h2 class="h2-relacionados">Tus Autos</h2>
+
+        <div class="div-relacionados">
+
+            <% let limite = 0 %>
+            
+                <% for (let i = 0; i < autos.length; i++) { %>
+
+                    <% limite++ %>
+                    
+                    <div class=" autos-relacionados">
+                      <a href="/autos/<%= autos[i].id %>">
+                        <div class="div-img">
+                            <img src="/images/autos/<%= autos[i].img %>" alt="foto-auto">
+                        </div>
+                      </a>
+                        <div class="datos">
+                            <div class="div-precio">
+                                <p>$<%= autos[i].price %></p>
+                                <% if (autos[i].discount > 0) { %>
+                                    <p class="discount"><%= autos[i].discount %>%</p>
+                                <% } %>
+                            </div>
+                            <p class="model"><%= autos[i].model %></p>
+                        </div>
+                       <div class="div-buttom">
+                        <a class="a-editar" href="/autos/editar/<%= autos[i].id %>">
+                            <button class="editar">Editar</button>
+                        </a>
+                        <form class="form-borrar" action="/autos/borrar/<%= autos[i].id %>" method="POST">
+                            <button class="borrar" type="submit">Borrar</button>
+                        </form>
+                       </div>
+                    </div>
+
+            <% if (limite > 3) { %>
+                <% break %>
+            <%} %>
+            
+            <% } %>
+        </div>
+    <% } %>
 
     <script src="/javascripts/index.js"></script>
 </body>

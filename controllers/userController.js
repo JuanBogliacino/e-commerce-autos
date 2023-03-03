@@ -22,6 +22,8 @@ let userController = {
             .then(function(usuarios){
                   let usuario = usuarios.find(usuario => usuario.mail == req.body.mail);
 
+                //   bcryptjs.hashSync(req.body.password, 10)
+
                   if(usuario != undefined) {
                     
                     return res.render('register', {
@@ -32,7 +34,7 @@ let userController = {
                     db.User.create({
                         name: req.body.name,
                         mail: req.body.mail,
-                        password: bcryptjs.hashSync(req.body.password, 10)
+                        password: req.body.password
                     });
            
                    res.redirect("/user/login");
@@ -46,7 +48,7 @@ let userController = {
     loguearse: function(req, res) {
         db.User.findAll()
           .then(function(usuarios){
-            let usuario = usuarios.find(usuario => usuario.mail == req.body.mail);
+            let usuario = usuarios.find(usuario => usuario.mail == req.body.mail && usuario.password == req.body.password);
 
             if(req.body.mail == "" || req.body.password == "") {
                 res.render("login", {
@@ -55,16 +57,27 @@ let userController = {
                 })
             } else {
                 if(usuario) {
-                    let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
-                    console.log(usuario.password);
-                    console.log(usuarioPass);
-                    if (usuarioPass || req.body.password == usuario.password) {
-                        res.redirect("/");
+                    delete usuario.password;
+                    req.session.userLogged = usuario;
+
+                    if (req.body.remember_user) {
+                        res.cookie('userEmail', req.body.mail, { maxAge: ((60 * 1000) * 60) * 24 });
                     }
+
+                    res.redirect("/user/perfil");
+
+
+
+                    // let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
+                    // console.log(usuario.password);
+                    // console.log(usuarioPass);
+                    // if (usuarioPass || req.body.password == usuario.password) {
+                    //     res.redirect("/");
+                    // }
                 } else {
                     res.render("login", {
                         oldData: req.body,
-                        credenciales: "El correo que ingresó no está registrado"
+                        credenciales: "Las credenciales son invalidas"
                     });
                 }
                     // let usuarioPass = bcryptjs.compareSync(req.body.password, usuario.password);
@@ -83,6 +96,28 @@ let userController = {
             console.log(error);
            })
            
+        },
+        perfil: function(req, res) {
+            let pedidoMarcas = db.Marca.findAll();
+
+            let pedidoAutos = db.Auto.findAll({ include: [{association: "marca"}] }) 
+
+            Promise.all([pedidoAutos, pedidoMarcas])
+            .then(function([autos, marcas]) {
+
+                let autosUser = autos.filter(autosUser => autosUser.user_id == req.session.userLogged.id);
+
+                res.render("perfil", { 
+                    marcas:marcas,
+                    user: req.session.userLogged,
+                    autos: autosUser
+                  });
+            })
+        },
+        logout: function(req, res) {
+            res.clearCookie('userEmail');
+            req.session.destroy();
+            return res.redirect('/');
         }
 }
 

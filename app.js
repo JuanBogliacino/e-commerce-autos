@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // var indexRouter = require('./routes/index');
@@ -12,6 +11,21 @@ var autosRouter = require('./routes/autos');
 
 var app = express();
 
+const session = require('express-session');
+var cookies = require('cookie-parser');
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
+app.use(session({
+  secret: 'esto es un secreto',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(cookies());
+
+app.use(userLoggedMiddleware);
+
 app.use(express.urlencoded({ extended: false }));
 
 // view engine setup
@@ -21,7 +35,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);

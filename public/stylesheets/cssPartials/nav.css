@@ -198,6 +198,28 @@ nav ul {
 
     .nav-iconos {
         display: flex;
+        align-items: center;
+    }
+
+    .nav-iconos .logout {
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 10%;
+        transition: all 0.2s ease-out;
+    }
+
+    .nav-iconos .logout:hover {
+        background-color: #207718;
+    }
+
+    .nav-iconos .icono-perfil {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-iconos .icono-perfil p {
+        font-size: 16px;
+        margin-right: 6px;
     }
 
     .nav-iconos a {
@@ -223,7 +245,7 @@ nav ul {
         width: min-content;
         position: absolute;
         top: 98px;
-        left: 110px;
+        left: 200px;
         z-index: 999;
     }
     

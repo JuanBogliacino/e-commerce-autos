@@ -36,7 +36,11 @@
 
 
     <% if (autosMarca.length > 0 ) { %>
-        <h2 class="h2-relacionados">Autos relacionados</h2>
+        <div class="div-link">
+            <a href="/marcas/<%= auto.marca_id %>" class="a-h2-relacionados">
+                <h2 class="h2-relacionados">Autos relacionados</h2>
+            </a>
+        </div>
         <div class="div-relacionados">
 
             <% let limite = 0 %>
@@ -70,24 +74,15 @@
         </div>
     <% } %>
 
-
     
-
-
-
-
-
-
-
-
-    <a href="/autos/editar/<%= auto.id %>">
+    <!-- <a href="/autos/editar/<%= auto.id %>">
         <button class="editar">Editar</button>
     </a>
 
 
     <form action="/autos/borrar/<%= auto.id %>" method="POST">
         <button class="editar" type="submit">Borrar</button>
-    </form>
+    </form> -->
 
     <script src="/javascripts/index.js"></script>
 </body>

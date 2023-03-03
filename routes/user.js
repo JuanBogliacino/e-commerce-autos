@@ -14,10 +14,25 @@ const validations = [
     .isLength({min: 3}).withMessage("la contraseña debe contener al menos 3 caracteres")
 ];
 
-router.get("/register", userController.register);
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+
+// formulario de registro
+router.get("/register", guestMiddleware, userController.register);
+
+// procesar el registro
 router.post("/register", validations, userController.guardado);
 
-router.get("/login", userController.login);
+// formulario de login
+router.get("/login", guestMiddleware, userController.login);
+
+// procesar el login
 router.post("/login", userController.loguearse);
+
+// perfil de usuario
+router.get("/perfil", authMiddleware, userController.perfil);
+
+// Logout
+router.get("/logout", userController.logout);
 
 module.exports = router;

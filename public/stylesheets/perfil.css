@@ -6,3 +6,171 @@ body {
     font-family: 'Roboto', sans-serif;
     min-width: 300px;
 }
+
+.container {
+    min-width: 270px;
+    width: 70%;
+    max-width: 350px;
+    margin: 50px auto;
+    background-color: #eee;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #000;
+    border-radius: 10px;
+}
+
+.div-img {
+    height: 300px;
+    max-height: 220px;
+    padding: 5px;
+    padding-bottom: 2px;
+}
+
+.div-img img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.datos p {
+    color: #000;
+    font-weight: bold;
+}
+
+.name, .mail {
+    margin-top: 5px;
+    background-color: #fff;
+    padding: 6px;
+    box-shadow: 2px 1px 2px #333;
+}
+
+.h2-relacionados {
+    text-align: center;
+    text-shadow: 2px 2px #000;
+    background-color: #1b1b1b;
+    padding: 10px;
+    margin: auto;
+}
+
+.div-relacionados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #bbb;
+}
+
+.autos-relacionados {
+    min-width: 270px;
+    width: 70%;
+    max-width: 300px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #000;
+}
+
+.autos-relacionados .model {
+    background: transparent;
+}
+
+.autos-relacionados:hover {
+    box-shadow: 10px 10px 5px #2eaf14;
+}
+
+.autos-relacionados .div-img {
+    height: 300px;
+    max-height: 220px;
+}
+
+.div-precio {
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-precio .discount {
+    color: #2eaf14;
+    font-size: 20px;
+}
+
+.div-buttom {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ccc;
+    align-items: center;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.borrar {
+    color: #fff;
+    background-color: #d62424;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-radius: 10%;
+}
+
+.borrar:hover {
+    cursor: pointer;
+    background-color: #b30c0c;
+}
+
+.editar {
+    color: #fff;
+    background-color: #2eaf14;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-radius: 10%;
+}
+
+.editar:hover {
+    cursor: pointer;
+    background-color: #207718;
+}
+
+@media (min-width: 450px) {
+    .h2-relacionados {
+        font-size: 30px;
+    }
+
+    .autos-relacionados {
+         max-width: 230px;
+         margin: 30px 12px;
+    }
+    
+    .autos-relacionados .div-img {
+        max-height: 200px;
+    }
+
+    .div-precio p {
+        font-size: 18px;
+    }
+
+    .div-precio .discount {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 760px) {
+    .container {
+        margin: 50px 20px;
+    }
+
+    .autos-relacionados {
+        margin: 20px 12px;
+   }
+
+   .div-precio p {
+    font-size: 20px;
+   }
+}
+
+@media (min-width: 1460px) {
+    .autos-relacionados {
+        max-width: 320px;
+    }
+}
