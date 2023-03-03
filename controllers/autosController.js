@@ -117,7 +117,7 @@ let autosController = {
             }
         })
 
-        res.redirect("/");
+        res.redirect("/user/perfil");
     }
 }
 

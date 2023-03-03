@@ -28,12 +28,8 @@
         <h2 class="h2-relacionados">Tus Autos</h2>
 
         <div class="div-relacionados">
-
-            <% let limite = 0 %>
             
                 <% for (let i = 0; i < autos.length; i++) { %>
-
-                    <% limite++ %>
                     
                     <div class=" autos-relacionados">
                       <a href="/autos/<%= autos[i].id %>">
@@ -59,10 +55,6 @@
                         </form>
                        </div>
                     </div>
-
-            <% if (limite > 3) { %>
-                <% break %>
-            <%} %>
             
             <% } %>
         </div>
