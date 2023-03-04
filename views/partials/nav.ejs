@@ -12,7 +12,14 @@ rel="stylesheet">
                     <img class="logo-image" src="/images/autoVerde.png">
                 </div>
             </a>
-            <div class="barra-navegacion"><input type="text" name="buscador" id="buscador"><button><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button></div>
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar" required>
+                <div class="btn">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
+                </div>
+            </div>
+
             <div class="nav-iconos">
                 <% if (locals.isLogged == true) { %>
                     <a href="/user/perfil" class="icono-perfil"><p><%= locals.userLogged.name%></p><li><i class="fa-solid fa-circle-user"></i></li></a> 
