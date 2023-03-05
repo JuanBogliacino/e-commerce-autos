@@ -8,15 +8,36 @@ body {
 }
 
 .container {
-    min-width: 270px;
-    width: 70%;
-    max-width: 350px;
-    margin: 50px auto;
-    background-color: #eee;
-    padding: 10px;
-    box-shadow: 10px 10px 5px #000;
+    background-color: #fff;
+    padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    max-width: 280px;
+    margin: 50px auto;
+    box-shadow: 10px 10px 5px #000;
 }
+
+.container-img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-image: url(/images/messi2015Facha.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    border: 1.5px solid #000;
+}
+
+.datos .mail {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}  
 
 .div-img {
     height: 300px;
@@ -148,6 +169,11 @@ body {
     .div-precio .discount {
         font-size: 25px;
     }
+
+    .datos .mail {
+        /* text-shadow: 1px 1px #2eaf14; */
+        font-size: 20px;
+    }  
 }
 
 @media (min-width: 760px) {
@@ -157,6 +183,11 @@ body {
 
    .div-precio p {
     font-size: 20px;
+   }
+
+   .container-img {
+    width: 220px;
+    height: 220px;
    }
 }
 
