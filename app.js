@@ -9,6 +9,13 @@ var homePageRouter = require('./routes/homePage');
 var userRouter = require('./routes/user');
 var autosRouter = require('./routes/autos');
 
+//Aquí llamo a la ruta de las api de autos
+const apiAutosRouter = require('./routes/api/autosApi');
+//Aquí llamo a la ruta de las api de marcas
+const apiMarcasRouter = require('./routes/api/marcasApi')
+//Aquí llamo a la ruta de las api de users
+const apiUsersRouter = require('./routes/api/usersApi')
+
 var app = express();
 
 const session = require('express-session');
@@ -43,6 +50,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', homePageRouter);
 app.use('/user', userRouter);
 app.use('/autos', autosRouter);
+
+//Aquí creo la colección de mis recursos de autos (APIs)
+app.use('/api/autos', apiAutosRouter);
+app.use('/api/marcas', apiMarcasRouter);
+app.use('/api/users', apiUsersRouter);
 
 app.listen(3000);
 
