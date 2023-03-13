@@ -56,7 +56,7 @@ app.use('/api/autos', apiAutosRouter);
 app.use('/api/marcas', apiMarcasRouter);
 app.use('/api/users', apiUsersRouter);
 
-app.listen(3000);
+app.listen(5000);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
