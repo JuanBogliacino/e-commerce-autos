@@ -28,9 +28,11 @@
             <p class="model">Modelo: <%= auto.model %></p>
             <p class="marca">Marca: <%= auto.marca.name %></p>
             <p class="description">Descripción: <%= auto.description %></p>
-            <div class="div-buttom">
-                <input type="submit" class="submit" value="Agregar al carrito">
-            </div>
+            <% if (locals.isLogged == true) { %>
+                <div class="div-buttom">
+                    <input type="submit" class="submit" value="Agregar al carrito">
+                </div>
+            <% } %>
         </div>
     </div>
 
