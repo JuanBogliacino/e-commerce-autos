@@ -1,4 +1,5 @@
 let db = require("../database/models");
+let Op = db.Sequelize.Op;
 const { validationResult } = require('express-validator');
 
 let autosController = {
@@ -118,6 +119,20 @@ let autosController = {
         })
 
         res.redirect("/user/perfil");
+    },
+    search: function(req, res) {
+        let pedidoAutos = db.Auto.findAll({ 
+            include: [{association: "marca"}],
+            where: {
+                model: {[Op.like]: '%' +  req.body.search + '%'}
+            } 
+        })
+        let pedidoMarcas = db.Marca.findAll()
+
+        Promise.all([pedidoAutos, pedidoMarcas])
+        .then(function([autos, marcas]) {
+            res.render("search", {autos:autos, marcas:marcas});
+        })
     }
 }
 

@@ -52,24 +52,37 @@ nav ul {
 }
 
 .buscar {
-    padding: 5px;
     display: flex;
     align-items: center;
     margin: 5px 0;
 }
 
 .buscar input {
-    width: 0px;
-    height: 30px;
+    height: 25px;
     padding: 0 10px;
     color: #000;
     outline: none;
-    border-radius: 30px;
-    transition: all 0.3s ease-out;
+    /* border-radius: 30px; */
+    /* transition: all 0.3s ease-out; */
     border: none;
 }
 
-.btn {
+.buscar .search {
+    width: 120px;
+}
+
+.buscar .enviar {
+    background-color: #2eaf14;
+    width: 55px;
+    color: #fff;
+}
+
+.buscar .enviar:hover {
+    background-color: #207718;
+    cursor: pointer;
+}
+
+/* .btn {
     width: 38px;
     height: 38px;
     line-height: 38px;
@@ -80,11 +93,11 @@ nav ul {
     cursor: pointer;
     position: relative;
     right: 36px;
-}
+} */
 
-.buscar:hover input {
+/* .buscar:hover input {
     width: 140px;
-}
+} */
 
 .icono-menu-mobile i {
     font-size: 25px;
@@ -98,7 +111,7 @@ nav ul {
 .menu-mobile {
     flex-direction: column;
     position: absolute;
-    top: 58px;
+    top: 55px;
     right: 0;
     background-color: #181818;
     border: 2px solid #2eaf14;
@@ -156,18 +169,18 @@ nav ul {
 } */
 
 @media (min-width: 450px) {
-    .buscar:hover input {
+    /* .buscar:hover input {
         width: 240px;
+    } */
+
+    .buscar .search {
+        width: 200px;
     }
 }
 
 @media (min-width: 760px) {
 
-    .buscar input {
-        width: 440px;
-    }
-
-    .buscar:hover input {
+    .buscar .search {
         width: 440px;
     }
 
@@ -268,7 +281,7 @@ nav ul {
         background-color: #207718;
         width: min-content;
         position: absolute;
-        top: 95px;
+        top: 92px;
         left: 195px;
         z-index: 999;
     }

@@ -14,14 +14,16 @@
 <body>
     <%- include('./partials/nav') %>
 
-    <div class="main-image">
-        <p>Most Wanted</p>
-    </div>
+    <% if (locals.autos <= 0) { %>
+        <p class="recientes">No se encontraron resultados</p>
+    <%  } else { %>
 
-    <p class="recientes">AUTOS MAS RECIENTES</p>
+    <p class="recientes">Resultados de la busqueda</p>
+
+    <% } %>
 
     <div class="autos-container">
-        <% for (let i = 0; i < 8; i++) { %>
+        <% for (let i = 0; i < autos.length; i++) { %>
            
                 <div class="container">
                   <a href="/autos/<%= autos[i].id %>">
@@ -41,10 +43,6 @@
                 </div>
             
         <% } %>
-    </div>
-
-    <div class="main-image-2">
-        <p><a href="https://www.youtube.com/watch?v=AZdHSGHQd2Q" target="_blank">&copy;2023, MostWanted. All rights reserved.</a></p>
     </div>
 
     <script src="/javascripts/index.js"></script>

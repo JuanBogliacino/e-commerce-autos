@@ -1,4 +1,5 @@
 let db = require("../../database/models");
+let Op = db.Sequelize.Op;
 
 let autosAPIController = {
     list: (req, res) => {
@@ -136,6 +137,20 @@ let autosAPIController = {
             res.json(respuesta);
         })    
         .catch(error => res.send(error))
+    },
+    search: (req, res) => {
+        db.Auto
+        .findAll({
+            where: {
+                model: {[Op.like]: '%' + req.query.keyword + '%'}
+            }
+        })
+        .then(autos => {
+            if (autos.length > 0) {
+                return res.status(200).json(autos);
+            } 
+                return res.status(200).json("no se encontró el auto solicitado");
+        })
     }
 }
 

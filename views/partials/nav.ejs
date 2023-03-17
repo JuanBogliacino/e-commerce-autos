@@ -13,12 +13,13 @@ rel="stylesheet">
                 </div>
             </a>
 
-            <div class="buscar">
-                <input type="text" placeholder="Buscar" required>
-                <div class="btn">
+            <form class="buscar" action="/autos/search" method="POST">
+                <input type="text" class="search" placeholder="Buscar" name="search" required>
+                <input type="submit" class="enviar" value="Enviar">
+                <!-- <div class="btn">
                     <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
-                </div>
-            </div>
+                </div> -->
+            </form>
 
             <div class="nav-iconos">
                 <% if (locals.isLogged == true) { %>

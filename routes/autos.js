@@ -51,6 +51,9 @@ router.post("/crear", uploadFile.single("img"), validations, autosController.gua
 //Lectura
 router.get("/" , autosController.listado);
 
+//Search
+router.post("/search", autosController.search);
+
 //Detalle 
 router.get("/:id" , autosController.detalle);
 

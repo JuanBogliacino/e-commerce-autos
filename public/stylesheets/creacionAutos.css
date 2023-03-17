@@ -7,7 +7,7 @@ body {
     min-width: 332px;
 }
 
-form {
+.form {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin: auto;

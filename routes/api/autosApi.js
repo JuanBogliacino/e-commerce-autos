@@ -5,6 +5,8 @@ const autosAPIController = require('../../controllers/api/autosAPIController');
 //Listado de autos
 router.get('/', autosAPIController.list);
 
+router.get('/search', autosAPIController.search);
+
 //Detalle de un auto
 router.get('/:id', autosAPIController.detail);
 
