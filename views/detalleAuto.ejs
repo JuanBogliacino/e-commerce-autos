@@ -28,7 +28,7 @@
             <p class="model">Modelo: <%= auto.model %></p>
             <p class="marca">Marca: <%= auto.marca.name %></p>
             <p class="description">Descripción: <%= auto.description %></p>
-            <% if (locals.isLogged == true) { %>
+            <% if (locals.isLogged == true && auto.user_id != user.id ) { %>
                 <div class="div-buttom">
                     <input type="submit" class="submit" value="Agregar al carrito">
                 </div>

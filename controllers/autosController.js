@@ -64,7 +64,7 @@ let autosController = {
                 }
             }
 
-            res.render("detalleAuto", {auto:auto, marcas:marcas, autosMarca:resultado});
+            res.render("detalleAuto", {auto:auto, marcas:marcas, autosMarca:resultado, user:req.session.userLogged});
         })
     },
     editar: function(req, res) {
