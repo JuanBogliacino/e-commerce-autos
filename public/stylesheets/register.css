@@ -121,7 +121,7 @@ form {
   }
 
 .text-danger {
-    color: #f00;
+    color: rgb(250, 27, 27);
     margin-top: 5px;
     display: flex;
     font-size: 15px;
