@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var autosController = require("../controllers/autosController");
 
+const authMiddleware = require('../middlewares/authMiddleware');
+
 const { body } = require('express-validator');
 
 const validations = [
@@ -45,7 +47,7 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 //Creación
-router.get("/crear", autosController.crear);
+router.get("/crear", authMiddleware , autosController.crear);
 router.post("/crear", uploadFile.single("img"), validations, autosController.guardado);
 
 //Lectura
@@ -58,7 +60,7 @@ router.post("/search", autosController.search);
 router.get("/:id" , autosController.detalle);
 
 //Actualizacion
-router.get("/editar/:id", autosController.editar);
+router.get("/editar/:id", authMiddleware , autosController.editar);
 router.post("/editar/:id", uploadFile.single("img"), validations, autosController.actualizar);
 
 //Borrado
