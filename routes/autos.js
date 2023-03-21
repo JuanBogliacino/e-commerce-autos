@@ -53,6 +53,12 @@ router.post("/crear", uploadFile.single("img"), validations, autosController.gua
 //Lectura
 router.get("/" , autosController.listado);
 
+//Favoritos
+router.get("/favoritos", authMiddleware ,autosController.favoritos);
+
+//Carrito
+router.get("/carrito", authMiddleware ,autosController.carrito);
+
 //Search
 router.post("/search", autosController.search);
 

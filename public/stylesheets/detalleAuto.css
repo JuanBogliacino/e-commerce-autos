@@ -73,15 +73,27 @@ body {
     margin-top: 12px;
     background-color: #2eaf14;
     border-radius: 10px;
-    
+}
+
+.favoritos {
+    background-color: #145caf;
 }
 
 .submit:hover {
+    cursor: pointer;
     background-color: #207718;
 }
 
 .submit:focus {
     background-color: #2eaf14;
+}
+
+.favoritos:hover {
+    background-color: #134d8f;
+}
+
+.favoritos:focus {
+    background-color: #145caf;
 }
 
 .div-link {

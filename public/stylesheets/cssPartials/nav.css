@@ -58,7 +58,7 @@ nav ul {
 }
 
 .buscar input {
-    height: 25px;
+    height: 28px;
     padding: 0 10px;
     color: #000;
     outline: none;
@@ -73,8 +73,14 @@ nav ul {
 
 .buscar .enviar {
     background-color: #2eaf14;
-    width: 55px;
+    width: 30px;
     color: #fff;
+    padding: 5px;
+    border: none;
+}
+
+.buscar .enviar i {
+    font-size: 17px;
 }
 
 .buscar .enviar:hover {

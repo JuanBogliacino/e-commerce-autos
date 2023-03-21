@@ -8,6 +8,7 @@ let autosController = {
         .then(function(marcas) {
             return res.render("creacionAutos", {marcas:marcas});
         })
+        .catch(err => console.error(err));
     },
     guardado: function(req, res) {
         const resulltValidation = validationResult(req);
@@ -21,6 +22,7 @@ let autosController = {
                     marcas: marcas  
                 });
             })
+            .catch(err => console.error(err));
         } else {
              db.Auto.create({
             model: req.body.model,
@@ -43,6 +45,7 @@ let autosController = {
         .then(function([autos, marcas]) {
             res.render("listadoAutos", {autos:autos, marcas:marcas});
         })
+        .catch(err => console.error(err));
     },
     detalle: function(req, res) {
         let pedidoAuto = db.Auto.findByPk(req.params.id, {
@@ -66,6 +69,7 @@ let autosController = {
 
             res.render("detalleAuto", {auto:auto, marcas:marcas, autosMarca:resultado, user:req.session.userLogged});
         })
+        .catch(err => console.error(err));
     },
     editar: function(req, res) {
         let pedidoAuto = db.Auto.findByPk(req.params.id);
@@ -76,6 +80,7 @@ let autosController = {
         .then(function([auto, marcas]) {
             res.render("editarAuto", {auto:auto, marcas:marcas});
         })
+        .catch(err => console.error(err));
     },
     actualizar: function(req, res) {
         const resulltValidation = validationResult(req);
@@ -93,6 +98,7 @@ let autosController = {
                 marcas:marcas
             });
         })
+        .catch(err => console.error(err));
         } else {
             db.Auto.update({
                 model: req.body.model,
@@ -131,8 +137,23 @@ let autosController = {
 
         Promise.all([pedidoAutos, pedidoMarcas])
         .then(function([autos, marcas]) {
-            res.render("search", {autos:autos, marcas:marcas});
+            res.render("search", {autos:autos, marcas:marcas, busqueda:req.body.search});
         })
+        .catch(err => console.error(err));
+    },
+    favoritos: function(req, res) {
+        db.Marca.findAll()
+        .then(function(marcas) {
+            return res.render("favoritos", {marcas:marcas});
+        })
+        .catch(err => console.error(err));
+    },
+    carrito: function(req, res) {
+        db.Marca.findAll()
+        .then(function(marcas) {
+            return res.render("carrito", {marcas:marcas});
+        })
+        .catch(err => console.error(err));
     }
 }
 
