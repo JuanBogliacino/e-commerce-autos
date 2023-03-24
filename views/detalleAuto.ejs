@@ -25,10 +25,15 @@
                     <p class="discount"><%= auto.discount %>%</p>
                 <% } %>
             </div>
-            <p class="model">Modelo: <%= auto.model %></p>
+            <p class="model"><%= auto.model %></p>
             <p class="marca">Marca: <%= auto.marca.name %></p>
-            <p class="description">Descripción: <%= auto.description %></p>
+            <% if (auto.description) { %>
+                <p class="description">Descripción: <%= auto.description %></p>
+            <% } %>
             <% if (locals.isLogged == true && auto.user_id != user.id ) { %>
+                <div class="div-buttom">
+                    <input type="submit" class="submit favoritos" value="Agregar a favoritos">
+                </div>
                 <div class="div-buttom">
                     <input type="submit" class="submit" value="Agregar al carrito">
                 </div>
@@ -86,6 +91,6 @@
         <button class="editar" type="submit">Borrar</button>
     </form> -->
 
-    <script src="/javascripts/index.js"></script>
+    <!-- <script src="/javascripts/index.js"></script> -->
 </body>
 </html>

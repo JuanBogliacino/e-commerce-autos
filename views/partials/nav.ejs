@@ -15,7 +15,9 @@ rel="stylesheet">
 
             <form class="buscar" action="/autos/search" method="POST">
                 <input type="text" class="search" placeholder="Buscar" name="search" required>
-                <input type="submit" class="enviar" value="Enviar">
+                <button class="enviar"><i class="fa-solid fa-search"></i></button>
+
+                <!-- <input type="submit" class="enviar" value="Enviar"> -->
                 <!-- <div class="btn">
                     <i class="fa-sharp fa-solid fa-magnifying-glass icon"></i>
                 </div> -->
@@ -38,7 +40,8 @@ rel="stylesheet">
                 <a href="/marcas"><li class="navigaton">Marcas</li></a>
                 <% if (locals.isLogged == true) { %>
                     <a href="/autos/crear"><li class="">Vender</li></a>
-                    <a href="/"><li class="navigaton"><i class="fa-solid fa-cart-shopping"></i></li></a>
+                    <a href="/autos/favoritos"><li class="navigaton"><i class="fa-solid fa-star"></i></li></a>
+                    <a href="/autos/carrito"><li class="navigaton"><i class="fa-solid fa-cart-shopping"></i></li></a>
                     <a href="/user/perfil" class="foto-usuario"><li class="navigaton"><i class="fa-solid fa-circle-user"></i></li></a>
                     <a href="/user/logout"><li class="">Logout</li></a> 
                 <% } %>
@@ -65,7 +68,8 @@ rel="stylesheet">
                 <% if (locals.isLogged == true) { %>
                     <a href="/user/logout"><li class="logout">Logout</li></a>
                     <a href="/autos/crear"><li class="">Vender</li></a>
-                    <a href="" class=""><li><i class="fa-solid fa-cart-shopping"></i></li></a> 
+                    <a href="/autos/favoritos" class=""><li><i class="fa-solid fa-star"></i></li></a> 
+                    <a href="/autos/carrito" class=""><li><i class="fa-solid fa-cart-shopping"></i></li></a> 
                 <% } %>
                 <!-- <a href="/form-login"><li class="">Login</li></a> -->
             </ul>

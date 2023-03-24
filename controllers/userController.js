@@ -40,9 +40,7 @@ let userController = {
                    res.redirect("/user/login");
                   }
              })
-             .catch(function(error) {
-                console.log(error);
-               })
+             .catch(err => console.error(err));
         }
     },
     loguearse: function(req, res) {
@@ -92,10 +90,7 @@ let userController = {
                     // }
             }
            })
-           .catch(function(error) {
-            console.log(error);
-           })
-           
+           .catch(err => console.error(err)); 
         },
         perfil: function(req, res) {
             let pedidoMarcas = db.Marca.findAll();
@@ -113,6 +108,7 @@ let userController = {
                     autos: autosUser
                   });
             })
+            .catch(err => console.error(err));
         },
         logout: function(req, res) {
             res.clearCookie('userEmail');
