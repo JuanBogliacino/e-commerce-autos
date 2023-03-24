@@ -104,7 +104,7 @@ form {
     height: 60px;
     border: 3px solid #77dd77;
     border-radius: 45px;
-    transition: all 0.3s;
+    transition: all 0.5s;
     cursor: pointer;
     background: white;
     font-size: 1.2em;
@@ -114,9 +114,12 @@ form {
   }
   
   .submit:hover {
-    background: #77dd77;
+    border: #30d430;
     color: #fdfdfd;
     font-size: 1.5em;
+    color: black;
+    background-color: #30d430;
+    filter: drop-shadow(0 0 15px #30d430) contrast(2) brightness(2);
   }
 
 .text-danger {
@@ -137,7 +140,11 @@ form {
     margin-right: 5px;
 }
 
-
+/* .submit:hover {
+  color: black;
+  background-color: #db3eb1;
+  filter: drop-shadow(0 0 20px #db3eb1) contrast(2) brightness(2);
+} */
 
 
 
