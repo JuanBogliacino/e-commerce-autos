@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     color: #eaebe7;
+    font-family: 'Nunito', sans-serif;
 }
 
 body::-webkit-scrollbar {

@@ -13,6 +13,10 @@
       src="https://kit.fontawesome.com/64cf8f81a0.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav class="nav">
@@ -25,52 +29,53 @@
 
     <form class="form" action="/user/login" method="POST">
       <h2>Iniciar sesión</h2>
-      <p>
-        ¿Todavía no tienes una cuenta?<a href="/user/register"> Entra aquí</a>
-      </p>
-
+      
       <div class="form-container">
         <% if (locals.errors != undefined) { %>
-        <div class="text-danger"><%= errors %></div>
-        <% } %> <% if (locals.credenciales != undefined) { %>
-        <div class="text-danger"><%= credenciales %></div>
-        <% } %>
-        <div class="form-group">
-          <input
-            type="text"
-            name="mail"
-            id="mail"
-            class="form-input"
-            value="<%= locals.oldData ? oldData.mail : null %>"
-            placeholder=" "
-          />
-          <label for="mail" class="form-label">Email</label>
-        </div>
-        <div class="form-group">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            class="form-input"
+          <div class="text-danger"><%= errors %></div>
+          <% } %> <% if (locals.credenciales != undefined) { %>
+            <div class="text-danger"><%= credenciales %></div>
+            <% } %>
+            <div class="form-group">
+              <input
+              type="text"
+              name="mail"
+              id="mail"
+              class="form-input"
+              value="<%= locals.oldData ? oldData.mail : null %>"
+              placeholder=" "
+              />
+              <label for="mail" class="form-label">Email</label>
+            </div>
+            <div class="form-group">
+              <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-input"
             placeholder=" "
           />
           <label for="password" class="form-label">Contraseña</label>
         </div>
         <div class="form-group">
           <div class="checkbox">
-          <label for="checkbox" class="label-checkbox">
-            <input
+            <label for="checkbox" class="label-checkbox">
+              <input
               type="checkbox"
               class="checkbox-input"
               name="remember_user"
-            /> Recordar usuario
-          </label>
+              /> Recordar usuario
+            </label>
+          </div>
         </div>
+        <div>
+          <input type="submit" class="submit" value="Enviar" />
         </div>
-<div>
-        <input type="submit" class="submit" value="Enviar" />
-      </div>
+        <p>
+          ¿Todavía no tienes una cuenta?<a href="/user/register"> Entra aquí</a>
+        </p>
       </div>
     </form>
   </body>
-</html>
+  </html>
+  

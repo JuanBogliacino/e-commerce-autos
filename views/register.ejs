@@ -7,7 +7,11 @@
         <!-- Font Awesome -->
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@200&family=IBM+Plex+Sans:ital,wght@1,200&family=M+PLUS+1+Code:wght@300&family=Roboto:wght@300&family=Rubik:wght@500&family=Shippori+Antique&display=swap"rel="stylesheet">
         <script src="https://kit.fontawesome.com/64cf8f81a0.js" crossorigin="anonymous"></script>
-</head>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    </head>
 <body>
 
     <nav class="nav">
@@ -20,8 +24,7 @@
 
     <form class="form" action="/user/register" method="POST">
         <h2>Registrarse</h2>
-        <p>¿Ya tienes una cuenta?<a href="/user/login"> Entra aquí</a></p>
-
+        
         <div class="form-container">
             <div class="form-group">
                 <input type="text" name="name" id="name" class="form-input name" value="<%= locals.oldData ? oldData.name : null %>" placeholder=" ">
@@ -30,37 +33,39 @@
                     <div class="text-danger">
                         <%= errors.name.msg %>
                     </div>
-                <% } %>
-            </div>
-            <div class="form-group">
-                <input type="text" name="mail" id="mail" class="form-input mail" value="<%= locals.oldData ? oldData.mail : null %>" placeholder=" ">
-                <label for="mail" class="form-label">Email</label>
-                <% if (locals.errors && errors.mail) { %>
-                    <div class="text-danger">
-                        <%= errors.mail.msg %>
-                    </div>
-                <% } %>
-                <% if (locals.mailEnUso != undefined) { %>
+                    <% } %>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="mail" id="mail" class="form-input mail" value="<%= locals.oldData ? oldData.mail : null %>" placeholder=" ">
+                    <label for="mail" class="form-label">Email</label>
+                    <% if (locals.errors && errors.mail) { %>
+                        <div class="text-danger">
+                            <%= errors.mail.msg %>
+                        </div>
+                        <% } %>
+                        <% if (locals.mailEnUso != undefined) { %>
                     <div class="text-danger">
                         <%= mailEnUso %>
                     </div>
-                <% } %>      
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" id="password" class="form-input password" placeholder=" ">
-                <label for="password" class="form-label">Contraseña</label>
-                <% if (locals.errors && errors.password) { %>
-                    <div class="text-danger">
-                        <%= errors.password.msg %>
+                    <% } %>      
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-input password" placeholder=" ">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>
+                        <% } %>
                     </div>
-                <% } %>
-            </div>
-            <div>
-            <input type="submit" class="submit" value="Enviar">
-        </div>
-        </div>
-    </form>
-
-    <!-- <script src="/javascripts/validaciones-register.js"></script> -->
-</body>
-</html>
+                    <div>
+                        <input type="submit" class="submit" value="Enviar">
+                    </div>
+                </div>
+                <br>
+                <p>¿Ya tienes una cuenta?<a href="/user/login"> Entra aquí</a></p>
+            </form>
+            
+            <!-- <script src="/javascripts/validaciones-register.js"></script> -->
+        </body>
+        </html>
