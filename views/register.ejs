@@ -58,6 +58,15 @@
                         </div>
                         <% } %>
                     </div>
+                    <div class="form-group">
+                        <input type="password" name="confirmPassword" id="confirmPassword" class="form-input password" placeholder=" ">
+                        <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                        <% if (locals.passwordErrors != undefined) { %>
+                            <div class="text-danger">
+                                <%= passwordErrors %>
+                            </div>
+                            <% } %>      
+                        </div>
                     <div>
                         <input type="submit" class="submit" value="Enviar">
                     </div>

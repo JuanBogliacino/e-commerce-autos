@@ -10,11 +10,18 @@ let userController = {
         res.render("login");
     },
     guardado: function(req, res) {
-        const resulltValidation = validationResult(req);
-        
-        if (resulltValidation.errors.length > 0) {
+        const resultValidation = validationResult(req);
+
+        if (req.body.password != req.body.confirmPassword) {
             return res.render('register', {
-                errors: resulltValidation.mapped(),
+                passwordErrors: 'La contraseña no coincide',
+                oldData: req.body
+            });
+        }
+        
+        if (resultValidation.errors.length > 0) {
+            return res.render('register', {
+                errors: resultValidation.mapped(),
                 oldData: req.body
             });
         } else {
@@ -92,29 +99,29 @@ let userController = {
            })
            .catch(err => console.error(err)); 
         },
-        perfil: function(req, res) {
-            let pedidoMarcas = db.Marca.findAll();
+    perfil: function(req, res) {
+        let pedidoMarcas = db.Marca.findAll();
 
-            let pedidoAutos = db.Auto.findAll({ include: [{association: "marca"}] }) 
+        let pedidoAutos = db.Auto.findAll({ include: [{association: "marca"}] }) 
 
-            Promise.all([pedidoAutos, pedidoMarcas])
-            .then(function([autos, marcas]) {
+        Promise.all([pedidoAutos, pedidoMarcas])
+        .then(function([autos, marcas]) {
 
-                let autosUser = autos.filter(autosUser => autosUser.user_id == req.session.userLogged.id);
+            let autosUser = autos.filter(autosUser => autosUser.user_id == req.session.userLogged.id);
 
-                res.render("perfil", { 
-                    marcas:marcas,
-                    user: req.session.userLogged,
-                    autos: autosUser
-                  });
-            })
-            .catch(err => console.error(err));
-        },
-        logout: function(req, res) {
-            res.clearCookie('userEmail');
-            req.session.destroy();
-            return res.redirect('/');
-        }
+            res.render("perfil", { 
+                marcas:marcas,
+                user: req.session.userLogged,
+                autos: autosUser
+            });
+        })
+        .catch(err => console.error(err));
+    },
+    logout: function(req, res) {
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
+    }
 }
 
 module.exports = userController;
