@@ -11,6 +11,14 @@ body {
     min-width: 332px;
 }
 
+.recientes {
+    font-weight: bold;
+    text-shadow: 3px 3px #207718;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
 .div-oferta {
     margin: 0 auto;
     display: flex;
@@ -90,6 +98,11 @@ body {
 
 
 @media (min-width: 450px) {
+    .recientes {
+        font-size: 25px;
+        margin-top: 30px;
+    }
+
     .container {
         max-width: 300px;
         margin: 50px 5px;
@@ -120,6 +133,11 @@ body {
 }
 
 @media (min-width: 760px) {
+    .recientes {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+    
     .container {
         max-width: 250px;
         margin: 50px 10px;
