@@ -11,4 +11,4 @@ const menuMarcas = document.querySelector('.menu-marcas');
 
 liMarcas.addEventListener('click', () => {
     menuMarcas.classList.toggle('oculto');
-    });
+});

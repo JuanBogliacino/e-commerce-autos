@@ -7,8 +7,9 @@ let homePageController = {
 
         Promise.all([pedidoAutos, pedidoMarcas])
         .then(function([autos, marcas]) {
+            let autosOf = autos.filter(autosOf => autosOf.discount > 0);
             let autosReverse = autos.reverse();
-            res.render("homePage", {autos:autosReverse, marcas:marcas});
+            res.render("homePage", {autos:autosReverse, marcas:marcas, autosOf:autosOf});
         })
         .catch(err => console.error(err));
     },

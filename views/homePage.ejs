@@ -18,11 +18,84 @@
 <body>
     <%- include('./partials/nav') %>
 
-    <div class="main-image"> 
-        <p>Most Wanted</p>
+    <div class="banner-slider">
+        <ul>
+            <li>
+                <img src="/images/banners/auto-gris.jpg">
+            </li>
+            <li>
+                <img src="/images/banners/auto-violeta.jpg">
+            </li>
+            <li>
+                <img src="/images/banners/ferrari-1.jpg">
+            </li>
+            <li>
+                <img src="/images/banners/auto-negro.webp">
+            </li>
+        </ul>
     </div>
 
+    <!-- <div class="main-image"> 
+        <p>Most Wanted</p>
+    </div> -->
+
     <p class="recientes">AUTOS MAS RECIENTES</p>
+
+    <div class="carrusel">
+        <img class="control prev" src="/images/angle-left-6-48.png" alt="">
+        <div class="slider">
+          <% for (let i = 0; i < 10; i++) { %>
+            <div class="container">
+                <a href="/autos/<%= autos[i].id %>">
+                  <div class="div-img">
+                      <img src="/images/autos/<%= autos[i].img %>" alt="foto-auto">
+                  </div>
+                </a>
+                  <div class="datos">
+                      <div class="div-precio">
+                          <p>$<%= autos[i].price %></p>
+                          <% if (autos[i].discount > 0) { %>
+                              <p class="discount"><%= autos[i].discount %>%</p>
+                          <% } %>
+                      </div>
+                      <p class="model"><%= autos[i].model %></p>
+                  </div>
+              </div>
+          <% } %>
+        </div>
+        <img class="control next" src="/images/angle-right-6-48.png" alt="">
+    </div>
+
+    <p class="recientes ofertas"><a href="/ofertas">AUTOS EN OFERTA</a></p>
+
+    <div class="carrusel">
+        <img class="control prev prev-ofertas" src="/images/angle-left-6-48.png" alt="">
+        <div class="slider slider-ofertas">
+          <% for (let i = 0; i < autosOf.length; i++) { %>
+            <div class="container">
+                <a href="/autos/<%= autosOf[i].id %>">
+                  <div class="div-img">
+                      <img src="/images/autos/<%= autosOf[i].img %>" alt="foto-auto">
+                  </div>
+                </a>
+                  <div class="datos">
+                      <div class="div-precio">
+                          <p>$<%= autosOf[i].price %></p>
+                          <% if (autosOf[i].discount > 0) { %>
+                              <p class="discount"><%= autosOf[i].discount %>%</p>
+                          <% } %>
+                      </div>
+                      <p class="model"><%= autosOf[i].model %></p>
+                  </div>
+              </div>
+          <% } %>
+        </div>
+        <img class="control next next-ofertas" src="/images/angle-right-6-48.png" alt="">
+    </div>
+
+
+
+
 
     <div class="autos-container">
         <% for (let i = 0; i < 8; i++) { %>
@@ -51,6 +124,6 @@
         <p><a href="https://www.youtube.com/watch?v=AZdHSGHQd2Q" target="_blank">&copy;2023, MostWanted. All rights reserved.</a></p>
     </div>
 
-    <!-- <script src="/javascripts/index.js"></script> -->
+    <script src="/javascripts/carrusel.js"></script>
 </body>
 </html>
