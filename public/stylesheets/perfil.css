@@ -18,8 +18,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
-    max-width: 280px;
+    width: 90%;
+    max-width: min-content;
     margin: 50px auto;
     box-shadow: 10px 10px 5px #000;
 }
@@ -40,7 +40,7 @@ body {
     color: #fff;
     padding: 5px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 14px;
 }  
 
 .div-img {
@@ -172,11 +172,6 @@ body {
 
     .div-precio .discount {
         font-size: 25px;
-    }
-
-    .datos .mail {
-        /* text-shadow: 1px 1px #2eaf14; */
-        font-size: 20px;
     }  
 }
 

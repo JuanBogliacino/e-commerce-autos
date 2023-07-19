@@ -92,6 +92,7 @@ option {
 
 .submit:hover {
     background-color: #207718;
+    cursor: pointer;
 }
 
 .text-danger {
