@@ -73,9 +73,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log('---------- Servidor funcionando correctamente ----------');
-console.log('---------- Funcionando en el http://localhost:9000/ ----------');
-
-app.listen(9000);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
 
 module.exports = app;
